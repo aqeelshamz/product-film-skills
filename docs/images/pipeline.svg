@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 280" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1200" height="280" rx="16" fill="#FCFCFA"/>
+  <text x="40" y="52" font-size="22" font-weight="700" fill="#191815">product-film: one stage at a time, each signed off by the owner</text>
+  <g font-size="15" fill="#191815">
+    <g transform="translate(40,90)">
+      <rect width="150" height="120" rx="12" fill="#fff" stroke="#D9D6CF" stroke-width="1.5"/>
+      <text x="16" y="32" font-size="13" fill="#816500" font-weight="700">0 · BRIEF</text>
+      <text x="16" y="60" font-size="14" font-weight="700">product-film</text>
+      <text x="16" y="84" font-size="13" fill="#54524D">buyer, message,</text>
+      <text x="16" y="102" font-size="13" fill="#54524D">length, formats</text>
+    </g>
+    <g transform="translate(205,90)">
+      <rect width="150" height="120" rx="12" fill="#fff" stroke="#D9D6CF" stroke-width="1.5"/>
+      <text x="16" y="32" font-size="13" fill="#816500" font-weight="700">1 · REFERENCE</text>
+      <text x="16" y="60" font-size="11.5" font-weight="700">film-reference-study</text>
+      <text x="16" y="84" font-size="13" fill="#54524D">its grammar as</text>
+      <text x="16" y="102" font-size="13" fill="#54524D">numbers, not looks</text>
+    </g>
+    <g transform="translate(370,90)">
+      <rect width="150" height="120" rx="12" fill="#fff" stroke="#D9D6CF" stroke-width="1.5"/>
+      <text x="16" y="32" font-size="13" fill="#816500" font-weight="700">2 · STORYBOARD</text>
+      <text x="16" y="60" font-size="14" font-weight="700">film-storyboard</text>
+      <text x="16" y="84" font-size="13" fill="#54524D">beats, words,</text>
+      <text x="16" y="102" font-size="13" fill="#54524D">2–4 directions</text>
+    </g>
+    <g transform="translate(535,90)">
+      <rect width="150" height="120" rx="12" fill="#FFCF33"/>
+      <text x="16" y="32" font-size="13" font-weight="700">3 · PICTURE</text>
+      <text x="16" y="60" font-size="14" font-weight="700">film-build</text>
+      <text x="16" y="84" font-size="13">stills → draft →</text>
+      <text x="16" y="102" font-size="13">60 fps final</text>
+    </g>
+    <g transform="translate(700,90)">
+      <rect width="150" height="120" rx="12" fill="#fff" stroke="#D9D6CF" stroke-width="1.5"/>
+      <text x="16" y="32" font-size="13" fill="#816500" font-weight="700">4 · SOUND</text>
+      <text x="16" y="60" font-size="14" font-weight="700">film-sound</text>
+      <text x="16" y="84" font-size="13" fill="#54524D">real recordings,</text>
+      <text x="16" y="102" font-size="13" fill="#54524D">on real events</text>
+    </g>
+    <g transform="translate(865,90)">
+      <rect width="150" height="120" rx="12" fill="#fff" stroke="#D9D6CF" stroke-width="1.5"/>
+      <text x="16" y="32" font-size="13" fill="#816500" font-weight="700">5 · VOICE</text>
+      <text x="16" y="60" font-size="14" font-weight="700">film-voiceover</text>
+      <text x="16" y="84" font-size="13" fill="#54524D">script on frames,</text>
+      <text x="16" y="102" font-size="13" fill="#54524D">name test, record</text>
+    </g>
+    <g transform="translate(1030,90)">
+      <rect width="130" height="120" rx="12" fill="#fff" stroke="#D9D6CF" stroke-width="1.5"/>
+      <text x="16" y="32" font-size="13" fill="#816500" font-weight="700">6–7 · SHIP</text>
+      <text x="16" y="60" font-size="14" font-weight="700">film-build</text>
+      <text x="16" y="84" font-size="13" fill="#54524D">9:16, captions,</text>
+      <text x="16" y="102" font-size="13" fill="#54524D">credits</text>
+    </g>
+  </g>
+  <g fill="#191815" font-size="12" fill-opacity="0.6">
+    <text x="40" y="250">Between every stage: send it for review, wait for a clear yes. references/lessons.md holds every rejection that taught a rule.</text>
+  </g>
+</svg>
