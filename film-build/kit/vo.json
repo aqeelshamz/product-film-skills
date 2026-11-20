@@ -1,0 +1,6 @@
+{
+  "voice": { "provider": "fish-audio", "id": "VOICE_ID", "name": "VOICE_NAME", "note": "spellings sent to the engine, e.g. Productt for a hard t" },
+  "phrases": [
+    { "id": "p1", "take": "l1", "from": 0.04, "to": 3.2, "at": 1.2, "tempo": 1.0, "text": "First line, as it is spoken." }
+  ]
+}

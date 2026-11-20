@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Product film</title>
+<style>
+  /* Your brand fonts (licensed for video), in assets/fonts/. Display for headlines, UI for interface text. */
+  @font-face { font-family: 'Display'; src: url(../assets/fonts/display.woff2) format('woff2'), local('Helvetica Neue'), local('Arial'); font-weight: 200 900; }
+  @font-face { font-family: 'UI'; src: url(../assets/fonts/ui.woff2) format('woff2'), local('Helvetica Neue'), local('Arial'); font-weight: 200 900; }
+  html, body { margin: 0; background: #000; overflow: hidden; }
+  #stage { position: relative; overflow: hidden; background: #FCFCFA; transform-origin: 0 0;
+           font-family: 'UI', 'Helvetica Neue', Arial, sans-serif; color: #191815;
+           -webkit-font-smoothing: antialiased; text-rendering: geometricPrecision; }
+  .scene { position: absolute; inset: 0; overflow: hidden; }
+  .abs { position: absolute; left: 0; top: 0; transform-origin: 0 0; }
+  .row { display: flex; align-items: center; }
+  .nw { white-space: nowrap; }
+</style>
+</head>
+<body>
+<div id="stage"></div>
+<script src="lib/motion.js"></script>
+<script src="data.js"></script>
+<script src="core.js"></script>
+<script src="mock.js"></script>
+<script src="film.js"></script>
+</body>
+</html>

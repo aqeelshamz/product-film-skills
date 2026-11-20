@@ -1,0 +1,31 @@
+{
+ "title": "Product film",
+ "note": "Times are in beats (seconds x 2, a nominal 120 bpm grid). samples: real recorded sound effects; 'at' is in beats of VIDEO time (video seconds x 2, after the pacing warp); get video seconds from tools/probe.mjs.",
+ "duration": 7.4,
+ "fps": 60,
+ "bpm": 120,
+ "formats": [
+  "16x9",
+  "9x16"
+ ],
+ "music": {
+  "source": "none"
+ },
+ "mix": {
+  "music": -100,
+  "sfx": -10,
+  "vo": 0,
+  "duck": true
+ },
+ "marks": {
+  "hook": 0,
+  "done": 14.8
+ },
+ "samples": [],
+ "samples_example": {
+  "at": 0.64,
+  "file": "mouseclick1.ogg",
+  "gain": 0.35,
+  "what": "the cursor clicks send at 0.32 s of video (at = seconds x 2); file in assets/sfx/"
+ }
+}
