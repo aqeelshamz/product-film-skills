@@ -48,7 +48,8 @@ and inspected.
 - Reuse the brand's existing characters (check the site). New ones match the style exactly.
 - Make sprite sheets in ChatGPT (via the owner's Chrome): 12 frames in a 4×3 grid on plain white, one character per
   chat. If it returns a painted checkerboard or black background, start a fresh chat. Cut the grid evenly, trim the
-  halo, save WebP. 6 frames looks stiff; 12 animates.
+  halo, save WebP: `tools/pack_grid.py` does all of that and prints the cell size for `sprite()`. 6 frames looks
+  stiff; 12 animates. The kit's `assets/characters/` shows the style and size that worked.
 - Enough of them: 8+ personas when the point is range.
 
 ## Brands and legal

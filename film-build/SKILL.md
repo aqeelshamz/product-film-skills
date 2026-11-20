@@ -17,7 +17,7 @@ The kit gives you:
 | File | What it is |
 |---|---|
 | `film/core.js` | the engine: `scene({name, from, to, build, run, after})` (times in beats = s × 2), `put(el, {o, css})`, `reg(el, base)`, `C.W/C.H/C.FMT`, `C.start()` |
-| `film/film.js` | a starter with every helper below and three example shots (line, prompt, split). Each helper's comment says which rejection it came from. Replace the shots, keep the helpers. |
+| `film/film.js` | a starter with every helper below and four example shots (line, prompt, split, persona card). Each helper's comment says which rejection it came from. Replace the shots, keep the helpers. |
 | `film/mock.js` | `window.MOCK`: HTML for real UI pieces (dashboards, windows, phone screens), in screen px |
 | `film/index.html` | loads fonts from `assets/fonts/{display,ui}.woff2` (with local sans fallbacks) |
 | `scripts/render.mjs` | `--sheet`, `--at t1,t2`, `--draft`, `--range a,b`, `--verify`, final, `--mux`, `--fmt 9x16`, `--all` |
@@ -25,6 +25,9 @@ The kit gives you:
 | `scripts/review.py` | critique kit from the rendered MP4: contact sheet, fastest-action strips, phone view, 9:16 safe zones, metrics |
 | `tools/probe.mjs` | `cuts` (every cut and each shot's midpoint, in video seconds) or any expression, e.g. `"window.UNWARP(12.4)"` |
 | `tools/sheet.py` | tile stills into one labelled sheet |
+| `tools/pack_grid.py` | cut a 4×3 character sheet (transparent or on white) into a 12-cell strip for `sprite()`; prints the cell size |
+| `tools/cut_cast.py` | cut a one-row lineup into single still characters |
+| `assets/characters/` | four example characters (founder, dev, seller, student), 12-frame strips with 360 px cells |
 | `tools/same.sh` | `save` / `check` PSNR regression between before and after stills |
 
 ## Helpers in the starter (use them, don't reinvent)
@@ -39,6 +42,8 @@ The kit gives you:
   never re-flows ("text transition is not at all smooth").
 - `cursor()/putCursor()/bump()`: a real arrow cursor that glides, arrives early, dips 15 % on a click.
 - `pop()` for small items landing.
+- `sprite(parent, src, cellW, cellH, h)` / `putSprite(e, t, a, z, loops)` for a drawn character: steps through its
+  12 frames over a → z, with a small breath so it never sits still. It's an `<img>`, so the engine waits for it.
 - `shot(name, t0, t1, build, run)` wraps `scene` in seconds.
 - Pacing warp at the bottom: `SLOW` (global stretch), `EV` holds (freeze a moment for reading) and inserts;
   `window.CUTS` and `window.UNWARP` give video times for sound and voice placement.

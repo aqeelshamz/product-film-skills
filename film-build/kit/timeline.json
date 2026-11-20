@@ -1,7 +1,7 @@
 {
  "title": "Product film",
  "note": "Times are in beats (seconds x 2, a nominal 120 bpm grid). samples: real recorded sound effects; 'at' is in beats of VIDEO time (video seconds x 2, after the pacing warp); get video seconds from tools/probe.mjs.",
- "duration": 7.4,
+ "duration": 9.8,
  "fps": 60,
  "bpm": 120,
  "formats": [
@@ -19,7 +19,7 @@
  },
  "marks": {
   "hook": 0,
-  "done": 14.8
+  "done": 19.6
  },
  "samples": [],
  "samples_example": {

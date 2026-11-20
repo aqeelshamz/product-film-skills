@@ -23,9 +23,9 @@ lists every one of those notes next to the rule it produced.
 
 ## The build kit
 
-`film-build/kit/init.sh` scaffolds a film project. The starter film has three example shots, each using a helper a
+`film-build/kit/init.sh` scaffolds a film project. The starter film has four example shots, each using a helper a
 reviewer asked for: a line typed in, a prompt typed key by key with a caret and a cursor that dips on the click, and
-words beside a picture that stack in 9:16.
+words beside a picture that stack in 9:16, and a persona card with a drawn character.
 
 ![The starter film, 16:9](docs/images/starter.gif)
 
@@ -34,6 +34,28 @@ words beside a picture that stack in 9:16.
 The same file renders both formats. 9:16 gets its own framing, and a regression check proves the 16:9 output didn't change.
 
 ![The same shot in 16:9 and 9:16](docs/images/formats.jpg)
+
+### Characters
+
+If your film shows the kinds of people who use the product, give each one a drawn character that moves instead of
+a text label. The kit comes with four, each a 12-frame loop where the character conjures something in their hands:
+
+![Four characters, each playing a 12-frame loop](docs/images/characters.gif)
+
+*The founder, developer, seller and student from a real launch film, in `film-build/kit/assets/characters/`.*
+
+1. **Draw a sheet.** Ask an image model (ChatGPT works) for one character in 12 poses, in a 4×3 grid, on plain
+   white or transparent. Use one chat per character so the style stays the same. Six frames looks stiff.
+2. **Cut it into a strip.** `python3 tools/pack_grid.py sheet.png assets/characters/you-12.webp` finds the 12
+   frames and puts every frame's feet on the same ground line. It keys out a white background from the edges, so white
+   eyes and highlights stay, and it prints the cell size. Use `tools/cut_cast.py` for a one-row lineup of characters
+   that stand still, for example a wall of personas.
+3. **Play it.** In `film/film.js`:
+   ```js
+   S.toy = sprite(S.c, '../assets/characters/student-12.webp', 259, 360, 560, 'left:1210px;top:290px');  // in build
+   putSprite(S.toy, t, 7.45, 9.7);   // in run: the 12 frames across 7.45–9.7 s, plus a slight breath
+   ```
+   The starter's fourth shot is a persona card built this way.
 
 `node scripts/render.mjs --sheet` renders one frame per beat into a contact sheet. You review that, and stills,
 before spending half an hour on a final render.

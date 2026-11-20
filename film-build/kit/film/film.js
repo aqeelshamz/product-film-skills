@@ -79,6 +79,25 @@
   // empty paper for a third of a second reads as a glitch.
   const pop = (e, t, at) => { const k = W(t, at, at + 0.42); put(e, { o: cl(k * 4), css: { transform: `scale(${L(0.55, 1, back(k)).toFixed(4)})`, transformOrigin: '50% 50%' } }); };
 
+  // ------------------------------------------------------------------ characters
+  // A drawn character is a strip from tools/pack_grid.py: n cells of cw × ch px side by side (it prints the cell size).
+  // sprite() shows one cell at h px tall, feet at the box's bottom edge; it's an <img>, so C.start() waits for it to
+  // decode. Rejected versions: personas as text labels ("show the animated toy-like mascot for each persona"), and
+  // 6 drawn frames, which looked stiff. 12 animate.
+  const sprite = (parent, src, cw, ch, h, style = '') => {
+    const w = (cw * h) / ch, box = div(parent, `width:${w.toFixed(1)}px;height:${h}px;overflow:hidden;transform-origin:50% 100%;${style}`);
+    box.img = el('img', { src, class: 'abs', style: `height:${h}px;width:auto` }, box);
+    box.fw = w; reg(box); reg(box.img);
+    return box;
+  };
+  // play the frames across a → z, `loops` times, holding the last frame after z. The breath (a ~1 % scaleY on the
+  // feet) keeps it alive between drawn frames; never sit a character still on screen.
+  const putSprite = (e, t, a, z, loops = 1, n = 12) => {
+    const f = Math.min(n * loops - 1, Math.floor(W(t, a, z) * n * loops)) % n;
+    put(e.img, { css: { transform: `translate(${(-f * e.fw).toFixed(1)}px,0)` } });
+    put(e, { css: { transform: `scaleY(${(1 + 0.012 * Math.sin(t * 9)).toFixed(4)})` } });
+  };
+
   // ------------------------------------------------------------------ shots
   // shot(name, t0, t1, build(root, S), run(t, S)): a hard cut at t0 (story seconds), paper underneath
   const UI = { bg: '#FCFCFA', ink: '#191815', ink2: '#54524D', pale: '#D9D6CF', acc: '#FFCF33', accInk: '#816500' };   // ← your brand tokens
@@ -112,6 +131,23 @@
     S.say = reg(div(root, `${PT ? 'left:80px;top:1240px;width:920px;font-size:76px' : 'left:1000px;top:480px;width:840px;font-size:60px'};font-family:Display;font-weight:700;line-height:1.15;letter-spacing:-0.03em;color:${UI.ink}`));
   }, (t, S) => {
     put(S.say, { html: typed('Straight from the source.', t, 5.1, 5.7, UI.ink, UI.pale) });
+  });
+  // --- EXAMPLE 4 · 7.4–9.8 · a persona card: a drawn character playing its 12 frames on a disc, its name beside it.
+  // The four characters in assets/characters/ are 12-frame conjuring loops drawn for a real launch film, packed by
+  // tools/pack_grid.py from sheets like student-sheet.png. Cells are 360 px tall and founder 252, dev 261, seller 270,
+  // student 259 px wide. Draw your own in your brand's style; these are only here to show how it moves.
+  shot('persona', 7.4, 9.8, (root, S) => {
+    const CX = pk(1340, MX), CY = pk(520, 700), TH = 560, TW = (259 * TH) / 360;
+    S.c = div(root, `width:${VW}px;height:${VH}px;transform-origin:${MX}px ${MY}px`);
+    S.disc = div(S.c, `left:${CX - 300}px;top:${CY - 300}px;width:600px;height:600px;border-radius:50%;background:${UI.acc}`);
+    S.toy = sprite(S.c, '../assets/characters/student-12.webp', 259, 360, TH, `left:${(CX - TW / 2).toFixed(1)}px;top:${CY + 330 - TH}px`);
+    S.name = reg(div(S.c, `${PT ? 'left:0;top:1260px;width:1080px;text-align:center' : 'left:200px;top:420px'};font-family:Display;font-weight:800;font-size:150px;line-height:1;letter-spacing:-0.045em;color:${UI.ink};white-space:nowrap`));
+    reg(S.c); reg(S.disc);
+  }, (t, S) => {
+    put(S.c, { css: { transform: `scale(${L(1, 1.035, W(t, 7.4, 9.8)).toFixed(4)})` } });
+    put(S.disc, { css: { transform: `scale(${L(0.9, 1, oq(W(t, 7.4, 7.75))).toFixed(4)})` } });
+    putSprite(S.toy, t, 7.45, 9.7);
+    put(S.name, { html: typed('The student', t, 7.5, 7.95, UI.ink, UI.pale) });
   });
 
   C.start();
