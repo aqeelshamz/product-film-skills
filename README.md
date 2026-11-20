@@ -86,3 +86,8 @@ node scripts/render.mjs --mux --all       # put a new audio mix into the finishe
 
 Sound and voice use `scripts/sfx_samples.py`, `scripts/vo.py` and `scripts/mix.py`. The voiceover skill uses Fish Audio
 for text to speech; any engine that gives you WAV files works with `vo.py`.
+
+## License
+
+[MIT](LICENSE). Fonts, sound packs, logos and wallpapers you add to a film keep their own licences; credit them in
+`assets/CREDITS.md`.
